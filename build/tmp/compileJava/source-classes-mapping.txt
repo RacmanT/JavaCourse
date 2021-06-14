@@ -1,29 +1,35 @@
-expression/Operator.java
- expression.Operator
- expression.Operator$Type
-expression/Constant.java
- expression.Constant
-ClientHandler.java
- ClientHandler
-Server.java
- Server
-expression/Node.java
- expression.Node
-expression/Parser.java
- expression.Parser
- expression.Parser$Token
- expression.Parser$TokenType
-expression/Variable.java
- expression.Variable
 util/Regex.java
  util.Regex
-QuitRequest.java
- QuitRequest
-StatRequest.java
- StatRequest
-Request.java
- Request
+util/expression/Constant.java
+ util.expression.Constant
+util/expression/Node.java
+ util.expression.Node
+util/expression/Variable.java
+ util.expression.Variable
+util/expression/Operator.java
+ util.expression.Operator
+ util.expression.Operator$Type
+util/expression/Parser.java
+ util.expression.Parser
+ util.expression.Parser$Token
+ util.expression.Parser$TokenType
 Main.java
  Main
-ComputationRequest.java
- ComputationRequest
+util/requests/StatRequest.java
+ util.requests.StatRequest
+util/responses/OkResponse.java
+ util.responses.OkResponse
+util/responses/ErrorResponse.java
+ util.responses.ErrorResponse
+server/Server.java
+ server.Server
+util/requests/QuitRequest.java
+ util.requests.QuitRequest
+util/requests/Request.java
+ util.requests.Request
+server/ClientHandler.java
+ server.ClientHandler
+util/requests/ComputationRequest.java
+ util.requests.ComputationRequest
+util/responses/Response.java
+ util.responses.Response

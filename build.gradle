@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'org.example'
@@ -14,8 +15,19 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation group: 'com.github.florianingerl.util', name: 'regex', version: '1.1.9'
     implementation "com.google.guava:guava:30.1.1-jre"
-//    implementation group: 'com.google.common', name: 'google-collect', version: '0.5'
 
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'FinalProject',
+                'Implementation-Version': 1.0,
+                'Main-Class': 'Main'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    archiveFileName.set("RacmanTibor.jar")
 }
 
 test {
