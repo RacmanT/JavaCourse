@@ -1,7 +1,13 @@
 package util.expression;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+
+/**
+ * @author Tibor Racman
+ * ADVANCED PROGRAMMING PROJECT 2020/21 - An abstract class modeling the concept of a node in the computation tree
+ */
 
 public abstract class Node {
   private final List<Node> children;
@@ -14,7 +20,7 @@ public abstract class Node {
     return children;
   }
 
-  public abstract double calculate(List<Double> coordinates) throws IllegalArgumentException;
+  public abstract double calculate(Map<String, Double> tuple) throws IllegalArgumentException;
 
   @Override
   public boolean equals(Object o) {

@@ -1,7 +1,11 @@
 package util.responses;
 
-public class ErrorResponse extends Response {
+  /**
+   * @author Tibor Racman
+   * ADVANCED PROGRAMMING PROJECT 2020/21 - A Class modeling an error response
+   */
 
+public class ErrorResponse extends Response {
   private static final String PREFIX = "ERR";
 
   public ErrorResponse(String result) {

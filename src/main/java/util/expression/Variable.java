@@ -2,7 +2,13 @@ package util.expression;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+
+/**
+ * @author Tibor Racman
+ * ADVANCED PROGRAMMING PROJECT 2020/21 - A Class modeling a node associated with a variable in a mathematical expression
+ */
 
 public class Variable extends Node {
   private final String name;
@@ -26,12 +32,14 @@ public class Variable extends Node {
   }
 
   @Override
-  public double calculate(List<Double> coordinates) throws IllegalArgumentException {
-    int index = Integer.parseInt(getName().replaceAll("[^0-9]", ""));
-    if (index > coordinates.size()) {
-      throw new IllegalArgumentException("Not valid variable " + getName());
+  public double calculate(Map<String, Double> tuple) throws IllegalArgumentException {
+    for (String variable : tuple.keySet()) {
+      if (variable.equals(this.getName())) {
+        return tuple.get(variable);
+      }
     }
-    return coordinates.get(index);
+    throw new IllegalArgumentException("Unknown Variable " + this.getName());
+
   }
 
   @Override

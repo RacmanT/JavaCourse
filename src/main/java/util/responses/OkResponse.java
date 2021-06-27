@@ -1,5 +1,10 @@
 package util.responses;
 
+  /**
+   * @author Tibor Racman
+   * ADVANCED PROGRAMMING PROJECT 2020/21 - A Class modeling a succesfull response
+   */
+
 public class OkResponse extends Response {
 
   private static final String PREFIX = "OK";

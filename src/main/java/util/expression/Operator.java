@@ -2,9 +2,15 @@ package util.expression;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+/**
+ * @author Tibor Racman
+ * ADVANCED PROGRAMMING PROJECT 2020/21 - A Class modeling a node associated with an operator in a mathematical expression
+ */
 
 public class Operator extends Node {
 
@@ -28,9 +34,9 @@ public class Operator extends Node {
   }
 
   @Override
-  public double calculate(List<Double> coordinates) throws IllegalArgumentException {
+  public double calculate(Map<String, Double> tuple) throws IllegalArgumentException {
     Function<double[], Double> operator = getType().getFunction();
-    return operator.apply(new double[]{getChildren().get(0).calculate(coordinates), getChildren().get(1).calculate(coordinates)});
+    return operator.apply(new double[]{getChildren().get(0).calculate(tuple), getChildren().get(1).calculate(tuple)});
   }
 
   @Override

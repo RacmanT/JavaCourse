@@ -2,6 +2,11 @@ package util.requests;
 
 import server.Server;
 
+/**
+ * @author Tibor Racman
+ * ADVANCED PROGRAMMING PROJECT 2020/21 - A Class modeling a server status request
+ */
+
 public class StatRequest extends Request {
   private final Server server;
 

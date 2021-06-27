@@ -2,7 +2,13 @@ package util.expression;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+
+/**
+ * @author Tibor Racman
+ * ADVANCED PROGRAMMING PROJECT 2020/21 - A Class modeling a node associated with a constant in a mathematical expression
+ */
 
 public class Constant extends Node {
 
@@ -18,7 +24,7 @@ public class Constant extends Node {
   }
 
   @Override
-  public double calculate(List<Double> coordinates) throws IllegalArgumentException {
+  public double calculate(Map<String, Double> tuple) throws IllegalArgumentException {
     return getValue();
   }
 

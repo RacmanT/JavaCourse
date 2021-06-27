@@ -1,13 +1,15 @@
 package util.responses;
 
 import server.Server;
+import util.Logger;
 import util.requests.Request;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
+/**
+   * @author Tibor Racman
+   * ADVANCED PROGRAMMING PROJECT 2020/21 - An abstract class modeling the concept of response
+   */
 
 public abstract class Response {
   protected final String result;
@@ -16,24 +18,20 @@ public abstract class Response {
     this.result = result;
   }
 
-  public static Response build(String input, Server server) {
+  public abstract String toString();
 
+  public static Response build(String input, Server server) {
     try {
-      server.getTimer().start();
+      double start = System.currentTimeMillis();
       String output = Request.parse(input, server).process();
-      double time = server.getTimer().elapsed(MILLISECONDS) / 1000.0;
+      double finish = System.currentTimeMillis();
+      double time = Math.pow(10, -3) * (finish - start);
       server.updateStatistics(time);
       return new OkResponse(time, output);
     } catch (IllegalArgumentException | ExecutionException e) {
-      System.err.print("[" + new SimpleDateFormat("E dd.MM.yyyy 'at' hh:mm:ss a").format(new Date()) + "] ");
-      System.err.println("Error during computation because " + e.getMessage());
+      Logger.log("Error during computation because " + e.getMessage(), true);
       return new ErrorResponse("(" + e.getClass().getSimpleName() + ")" + " " + e.getMessage());
-    } finally {
-      server.getTimer().stop();
     }
   }
-
-  public abstract String toString();
-
 
 }

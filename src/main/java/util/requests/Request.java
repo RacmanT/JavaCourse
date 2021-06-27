@@ -6,11 +6,16 @@ import util.Regex;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * @author Tibor Racman
+ * ADVANCED PROGRAMMING PROJECT 2020/21 - An abstract class modeling the concept of request
+ */
+
 public abstract class Request {
   protected final String input;
 
   public Request(String input) {
-    this.input = input;
+    this.input = input.trim();
   }
 
   public static Request parse(String input, Server server) throws IllegalArgumentException {
@@ -21,7 +26,7 @@ public abstract class Request {
     } else if (Pattern.compile(Regex.QUIT).matcher(input).matches()) {
       return new QuitRequest();
     } else {
-      throw new IllegalArgumentException("Invalid request");
+      throw new IllegalArgumentException("Request does not match pattern");
     }
   }
 

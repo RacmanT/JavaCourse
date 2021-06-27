@@ -4,6 +4,11 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author Tibor Racman
+ * ADVANCED PROGRAMMING PROJECT 2020/21 - A Class to parse a given expression in a computation tree
+ */
+
 public class Parser {
 
   //BNF
